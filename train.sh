@@ -1,0 +1,46 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 train.py \
+    --dataset_name __DATASET__ \
+    --model_name HOP-S \
+    --logdir logdir/HOP-S \
+    --train_dataset_dir __TRAIN_DATASET_DIR__ \
+    --train_path training \
+    --test_dataset_dir __TEST_DATASET_DIR__ \
+    --test_path testing \
+    --epochs 150 \
+    --phase1_epochs 150 \
+    --lr 2e-4 \
+    --batch_size 4 \
+    --grad_accum_steps 1 \
+    --amp \
+    --model_arch 25 \
+    --crop_num_uniform 10 \
+    --crop_num_random 20 \
+    --dim 48 \
+    --encoder_depth 2 \
+    --num_blocks 2 4 4 \
+    --heads 1 2 4 \
+    --use_swanlab
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --nproc_per_node=4 train.py \
+    --dataset_name __DATASET__ \
+    --model_name HOP-B \
+    --logdir logdir/HOP-B \
+    --train_dataset_dir __TRAIN_DATASET_DIR__ \
+    --train_path training \
+    --test_dataset_dir __TEST_DATASET_DIR__ \
+    --test_path testing \
+    --epochs 150 \
+    --phase1_epochs 150 \
+    --lr 2e-4 \
+    --batch_size 4 \
+    --grad_accum_steps 1 \
+    --amp \
+    --model_arch 25 \
+    --crop_num_uniform 10 \
+    --crop_num_random 20 \
+    --dim 48 \
+    --encoder_depth 2 \
+    --num_blocks 2 4 4 \
+    --heads 1 2 4 \
+    --use_swanlab
+

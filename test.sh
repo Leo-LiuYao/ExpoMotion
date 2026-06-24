@@ -1,0 +1,15 @@
+python test.py \
+    --model_name HOP-B \
+    --dataset_name expomotion \
+    --checkpoint path/to/checkpoint.pth \
+    --test_dataset_dir DATA_ROOT/expomotion/testing_1 \
+    --output_dir ./test_results/hop-B_testing_1 \
+    --gpu_id 0 \
+    --batch_size 1 \
+    --num_workers 4 \
+    --dim 48 \
+    --encoder_depth 3 \
+    --num_blocks 2 4 4 6 \
+    --heads 1 2 4 8 \
+    --ffn_expansion_factor 2.0 \
+    --save_gt
