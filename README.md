@@ -2,18 +2,19 @@
 
 Official PyTorch implementation of **ExpoMotion: A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion** (ECCV 2026).
 
-This repository contains the **HOP** (Householder Orthogonal Projection network) training and testing code. The **ExpoMotion** benchmark dataset is hosted separately on Google Drive (see below).
+This repository contains the **HOP** (Householder Orthogonal Projection network) training and testing code. The **ExpoMotion** benchmark dataset is hosted separately (see below).
 
 HOP tackles dynamic multi-exposure fusion (MEF) deghosting via:
 
 - **GPIA** (Global Priors Illumination Alignment): harmonizes exposure discrepancies using global illumination statistics.
 - **HOA** (Householder Orthogonal Attention): models ghosting as orthogonal perturbations and projects them out of the feature manifold.
 
-## ExpoMotion Dataset (Google Drive)
+## ExpoMotion Dataset
 
-The ExpoMotion dataset is **not included in this repository**. Download it from Google Drive and extract it locally:
+The ExpoMotion dataset is **not included in this repository**. Download `ExpoMotion.zip` from either link below and extract it locally:
 
-> **Download:** [Google Drive link — to be updated](https://drive.google.com/)
+> **Baidu Netdisk:** [ExpoMotion.zip](https://pan.baidu.com/s/1FV5JOPvKvc_PmDMiHIO1Ww) (extraction code: `EXPO`)  
+> **Google Drive:** [ExpoMotion.zip](https://drive.google.com/file/d/1gY_S737bkDTdXZB8M8atWm9s5E8EUeGZ/view?usp=sharing)
 
 After extraction, set `DATA_ROOT` to the folder that contains `expomotion/` (and optionally `expomotion_resize/`):
 
