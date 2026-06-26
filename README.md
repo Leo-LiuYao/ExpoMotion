@@ -1,22 +1,19 @@
 <div align="center">
 
-# 🌅 ExpoMotion & HOP
+# 🌅 ExpoMotion
 
-**ExpoMotion：A Large-Scale Benchmark and A Householder Projection Network for Multi-Exposure Fusion**
+**A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion**
 
 Official PyTorch implementation · ECCV 2026
 
-[![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1a73e8.svg)](https://eccv.ecva.net/)
-<!-- [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-3776ab.svg?logo=python&logoColor=white)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.10%2B-ee4c2c.svg?logo=pytorch&logoColor=white)](https://pytorch.org/) -->
-[![GitHub](https://img.shields.io/badge/GitHub-ExpoMotion-181717.svg?logo=github)](https://github.com/Leo-LiuYao/ExpoMotion)
+[![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1a73e8.svg)](https://eccv.ecva.net/) [![GitHub](https://img.shields.io/badge/GitHub-ExpoMotion-181717.svg?logo=github)](https://github.com/Leo-LiuYao/ExpoMotion)
 
 </div>
 
 ---
 
 <p align="center">
-  <img src="assets/figure1.pdf" width="90%" alt="ExpoMotion teaser">
+  <img src="assets/figure1.png" width="90%" alt="ExpoMotion teaser">
   <br>
   <em>Deviating from the conventional focus on perceptual quality in static scenes, our work introduces a large-scale MEF dataset dedicated to simultaneous detail restoration and motion artifact suppression. We integrate data from controlled and real-world motion, extreme lighting environments, and laboratory setups.</em>
 </p>
@@ -25,11 +22,6 @@ Official PyTorch implementation · ECCV 2026
 ## ✨ Overview
 
 This repository contains the training and testing code for **HOP** (**H**ouseholder **O**rthogonal **P**rojection network), together with instructions for the **ExpoMotion** benchmark dataset.
-
-HOP tackles dynamic multi-exposure fusion (MEF) deghosting through two key designs:
-
-- 🌐 **GPIA** — *Global Priors Illumination Alignment*: harmonizes exposure discrepancies across frames using global illumination statistics.
-- 🪞 **HOA** — *Householder Orthogonal Attention*: models ghosting as orthogonal perturbations and projects them out of the feature manifold.
 
 ## 📦 ExpoMotion Dataset
 
@@ -124,7 +116,7 @@ bash train.sh
 
 </div>
 
-Checkpoints are saved under `{logdir}/ckpt/` (`best_model.pth`, `epoch_*.pth`).
+Pretrained checkpoints (e.g., `HOP_B_ExpoMotion.pth`) are included in `ExpoMotion.zip` from the download mirrors above.
 
 ## 🧪 Testing
 
@@ -188,7 +180,7 @@ Predictions and PSNR/SSIM metrics (when GT is available) are saved under `{outpu
 ├── test.py               # Inference and PSNR/SSIM evaluation
 ├── train.sh / test.sh    # Example launch scripts
 ├── assets/
-│   └── figure1.pdf       # Teaser figure
+│   └── figure1.png       # Teaser figure
 ├── model/
 │   └── hop.py            # HOP network (GPIA + HOA)
 ├── dataset/
@@ -203,6 +195,13 @@ Predictions and PSNR/SSIM metrics (when GT is available) are saved under `{outpu
     ├── utils.py
     └── utils_t.py
 ```
+
+## 🔗 Related Links
+
+A subset of the **ExpoMotion** dataset has been adopted by the NTIRE 2026 RAIM Challenge (Track 2) on multi-exposure image fusion in dynamic scenes:
+
+- **Competition:** [NTIRE 2026 RAIM — Track 2 (Codabench)](https://www.codabench.org/competitions/12728/)
+- **Baseline code:** [qulishen/RAIM-HDR](https://github.com/qulishen/RAIM-HDR)
 
 ## 📖 Citation
 
