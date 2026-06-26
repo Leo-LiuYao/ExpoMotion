@@ -2,7 +2,7 @@
 
 # 🌅 ExpoMotion：A Large-Scale Benchmark and A Householder Projection Network for Multi-Exposure Fusion
 
-Official PyTorch implementation · ECCV 2026
+<!-- Official PyTorch implementation · ECCV 2026 -->
 
 [![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1a73e8.svg)](https://eccv.ecva.net/) [![GitHub](https://img.shields.io/badge/GitHub-ExpoMotion-181717.svg?logo=github)](https://github.com/Leo-LiuYao/ExpoMotion)
 
@@ -207,7 +207,7 @@ If you find ExpoMotion or HOP useful in your research, please consider citing:
 
 ```bibtex
 @inproceedings{expo_motion_hop_2026,
-  title     = {ExpoMotion: A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion},
+  title     = {ExpoMotion: A Large-Scale Benchmark and A Householder Projection Network for Multi-Exposure Fusion},
   booktitle = {European Conference on Computer Vision (ECCV)},
   year      = {2026}
 }
