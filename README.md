@@ -1,43 +1,78 @@
-# ExpoMotion: A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion
+<div align="center">
 
-Official PyTorch implementation of **ExpoMotion: A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion** (ECCV 2026).
+# 🌅 ExpoMotion & HOP
 
-This repository contains the **HOP** (Householder Orthogonal Projection network) training and testing code. The **ExpoMotion** benchmark dataset is hosted separately (see below).
+**ExpoMotion：A Large-Scale Benchmark and A Householder Projection Network for Multi-Exposure Fusion**
 
-HOP tackles dynamic multi-exposure fusion (MEF) deghosting via:
+Official PyTorch implementation · ECCV 2026
 
-- **GPIA** (Global Priors Illumination Alignment): harmonizes exposure discrepancies using global illumination statistics.
-- **HOA** (Householder Orthogonal Attention): models ghosting as orthogonal perturbations and projects them out of the feature manifold.
+[![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1a73e8.svg)](https://eccv.ecva.net/)
+<!-- [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-3776ab.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-1.10%2B-ee4c2c.svg?logo=pytorch&logoColor=white)](https://pytorch.org/) -->
+[![GitHub](https://img.shields.io/badge/GitHub-ExpoMotion-181717.svg?logo=github)](https://github.com/Leo-LiuYao/ExpoMotion)
 
-## ExpoMotion Dataset
+</div>
 
-The ExpoMotion dataset is **not included in this repository**. Download `ExpoMotion.zip` from either link below and extract it locally:
+---
 
-> **Baidu Netdisk:** [ExpoMotion.zip](https://pan.baidu.com/s/1FV5JOPvKvc_PmDMiHIO1Ww) (extraction code: `EXPO`)  
-> **Google Drive:** [ExpoMotion.zip](https://drive.google.com/file/d/1gY_S737bkDTdXZB8M8atWm9s5E8EUeGZ/view?usp=sharing)
+<p align="center">
+  <img src="assets/figure1.pdf" width="90%" alt="ExpoMotion teaser">
+  <br>
+  <em>Deviating from the conventional focus on perceptual quality in static scenes, our work introduces a large-scale MEF dataset dedicated to simultaneous detail restoration and motion artifact suppression. We integrate data from controlled and real-world motion, extreme lighting environments, and laboratory setups.</em>
+</p>
+
+
+## ✨ Overview
+
+This repository contains the training and testing code for **HOP** (**H**ouseholder **O**rthogonal **P**rojection network), together with instructions for the **ExpoMotion** benchmark dataset.
+
+HOP tackles dynamic multi-exposure fusion (MEF) deghosting through two key designs:
+
+- 🌐 **GPIA** — *Global Priors Illumination Alignment*: harmonizes exposure discrepancies across frames using global illumination statistics.
+- 🪞 **HOA** — *Householder Orthogonal Attention*: models ghosting as orthogonal perturbations and projects them out of the feature manifold.
+
+## 📦 ExpoMotion Dataset
+
+> ⚠️ The dataset is **not included** in this repository. Download `ExpoMotion.zip` from either mirror below and extract it locally.
+
+<div align="center">
+
+| Mirror | Link | Code |
+|:------:|:----:|:----:|
+| **Baidu Netdisk** | [ExpoMotion.zip](https://pan.baidu.com/s/1FV5JOPvKvc_PmDMiHIO1Ww) | `EXPO` |
+| **Google Drive** | [ExpoMotion.zip](https://drive.google.com/file/d/1gY_S737bkDTdXZB8M8atWm9s5E8EUeGZ/view?usp=sharing) | — |
+
+</div>
 
 After extraction, set `DATA_ROOT` to the folder that contains `expomotion/` (and optionally `expomotion_resize/`):
 
-```
+```text
 DATA_ROOT/
 ├── expomotion/
-│   ├── training/     # 1,493 sequences, with GT
-│   ├── testing_1/    # controlled motion, with GT (reference evaluation)
-│   └── testing_2/    # real-world motion, without GT (no-reference evaluation)
-└── expomotion_resize/   # optional resized release
+│   ├── training/          # 1,493 sequences, with GT
+│   ├── testing_1/         # controlled motion, with GT (reference evaluation)
+│   └── testing_2/         # real-world motion, without GT (no-reference evaluation)
+└── expomotion_resize/     # optional resized release
 ```
 
+<div align="center">
+
 | Split | Motion type | Ground truth | Evaluation |
-|-------|-------------|--------------|------------|
-| `training` | mixed | Yes (`HDR.jpg`) | supervised training |
-| `testing_1` | controlled | Yes | reference-based (PSNR, SSIM, LPIPS, …) |
-| `testing_2` | real-world | No | no-reference (NIQE, MUSIQ, DeQA, …) |
+|:------|:-----------:|:------------:|:-----------|
+| `training`  | mixed      | ✅ (`HDR.jpg`) | supervised training |
+| `testing_1` | controlled | ✅            | reference-based (PSNR, SSIM, LPIPS, …) |
+| `testing_2` | real-world | ❌            | no-reference inference |
 
-Each sequence is a subfolder of JPG images. Training and `testing_1` use `0.jpg`, `1.jpg`, `2.jpg` as inputs and `HDR.jpg` as GT. `testing_2` contains multiple input frames only (no `HDR.jpg`).
+</div>
 
-## Training
+Each sequence is a subfolder of JPG images. `training` and `testing_1` use `0.jpg`, `1.jpg`, `2.jpg` as inputs and `HDR.jpg` as GT. `testing_2` contains multiple input frames only (no `HDR.jpg`).
 
-Single-GPU example (replace `DATA_ROOT` with your local path):
+## 🚀 Training
+
+<details open>
+<summary><b>Single GPU</b></summary>
+
+Replace `DATA_ROOT` with your local path:
 
 ```bash
 python train.py \
@@ -62,25 +97,39 @@ python train.py \
     --heads 1 2 4
 ```
 
-Multi-GPU (4× GPU): edit `DATA_ROOT` and hyperparameters in `train.sh`, then run:
+</details>
+
+<details>
+<summary><b>Multi-GPU (4× GPU)</b></summary>
+
+Edit `DATA_ROOT` and hyperparameters in `train.sh`, then run:
 
 ```bash
 bash train.sh
 ```
 
+</details>
+
+### ⚙️ Default training setup
+
+<div align="center">
+
 | Setting | Value |
-|---------|-------|
-| Optimizer | Adam (`lr=2×10⁻⁴`) |
+|:--------|:------|
+| Optimizer | Adam (`lr = 2×10⁻⁴`) |
 | LR schedule | Cosine annealing over 150 epochs |
 | Batch size | 4 per GPU |
 | Mixed precision | `--amp` |
 | Loss | L1 reconstruction |
 
+</div>
+
 Checkpoints are saved under `{logdir}/ckpt/` (`best_model.pth`, `epoch_*.pth`).
 
-## Testing
+## 🧪 Testing
 
-**testing_1** — controlled motion, reference evaluation (with GT):
+<details open>
+<summary><b>testing_1 — controlled motion, reference evaluation (with GT)</b></summary>
 
 ```bash
 python test.py \
@@ -97,7 +146,10 @@ python test.py \
     --save_gt
 ```
 
-**testing_2** — real-world motion, no-reference inference (without GT):
+</details>
+
+<details>
+<summary><b>testing_2 — real-world motion, no-reference inference (without GT)</b></summary>
 
 ```bash
 python test.py \
@@ -111,14 +163,32 @@ python test.py \
     --heads 1 2 4 8
 ```
 
-Predictions and metrics (when GT is available) are saved under `{output_dir}/`.
+</details>
 
-## Project Structure
+Predictions and PSNR/SSIM metrics (when GT is available) are saved under `{output_dir}/`.
 
-```
+## 🧩 Model Variants
+
+<div align="center">
+
+| Variant | Depth | Capacity | Use case |
+|:-------:|:-----:|:--------:|:---------|
+| **HOP-S** | `encoder_depth = 2` | lighter, fewer blocks | fast / lightweight |
+| **HOP-B** | `encoder_depth = 3` | larger, more blocks | best quality |
+
+</div>
+
+> 💡 Use the same `--dim`, `--encoder_depth`, `--num_blocks`, and `--heads` at test time as in training when loading a checkpoint.
+
+## 📁 Project Structure
+
+```text
+.
 ├── train.py              # Training with optional DDP
 ├── test.py               # Inference and PSNR/SSIM evaluation
 ├── train.sh / test.sh    # Example launch scripts
+├── assets/
+│   └── figure1.pdf       # Teaser figure
 ├── model/
 │   └── hop.py            # HOP network (GPIA + HOA)
 ├── dataset/
@@ -127,28 +197,30 @@ Predictions and metrics (when GT is available) are saved under `{output_dir}/`.
 │   └── loss.py           # L1 (+ optional FFT) loss
 ├── lr_scheduler/
 │   └── mylr.py           # Two-phase cosine LR scheduler
-├── metric/               # Evaluation utilities (DeQA, TMQI, etc.)
+├── pytorch_ssim/
+│   └── __init__.py       # SSIM implementation
 └── utils/
-    └── utils.py
+    ├── utils.py
+    └── utils_t.py
 ```
 
-## Model Variants
+## 📖 Citation
 
-- **HOP-S**: lighter (`encoder_depth=2`, fewer blocks)
-- **HOP-B**: larger (`encoder_depth=3`, more blocks)
-
-Use the same `--dim`, `--encoder_depth`, `--num_blocks`, and `--heads` as in training when loading a checkpoint.
-
-## Citation
+If you find ExpoMotion or HOP useful in your research, please consider citing:
 
 ```bibtex
 @inproceedings{expo_motion_hop_2026,
-  title={ExpoMotion: A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion},
-  booktitle={European Conference on Computer Vision (ECCV)},
-  year={2026}
+  title     = {ExpoMotion: A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
 }
 ```
 
-## License
 
-Third-party code under `metric/DeQA/` follows its own license (see `metric/DeQA/LICENSE`).
+---
+
+<div align="center">
+
+⭐ If this project helps you, please consider giving it a star!
+
+</div>
