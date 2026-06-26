@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🌅 ExpoMotion
-
-**A Large-Scale Benchmark and Householder Projection Network for Multi-Exposure Fusion**
+# 🌅 ExpoMotion：A Large-Scale Benchmark and A Householder Projection Network for Multi-Exposure Fusion
 
 Official PyTorch implementation · ECCV 2026
 
