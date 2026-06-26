@@ -4,7 +4,7 @@
 
 <!-- Official PyTorch implementation · ECCV 2026 -->
 
-[![English](https://img.shields.io/badge/README-English-9e9e9e?style=flat-square)](README.md) [![中文](https://img.shields.io/badge/README-中文-1a73e8?style=flat-square)](README_CN.md) [![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1a73e8.svg)](https://eccv.ecva.net/) [![GitHub](https://img.shields.io/badge/GitHub-ExpoMotion-181717.svg?logo=github)](https://github.com/Leo-LiuYao/ExpoMotion)
+[![English](https://img.shields.io/badge/README-English-9e9e9e?style)](README.md) [![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1a73e8.svg)](https://eccv.ecva.net/) [![GitHub](https://img.shields.io/badge/GitHub-ExpoMotion-181717.svg?logo=github)](https://github.com/Leo-LiuYao/ExpoMotion)
 
 </div>
 
