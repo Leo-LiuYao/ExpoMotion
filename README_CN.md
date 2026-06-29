@@ -201,6 +201,8 @@ python test.py \
 - **比赛主页：** [NTIRE 2026 RAIM — Track 2 (Codabench)](https://www.codabench.org/competitions/12728/)
 - **基线代码：** [qulishen/RAIM-HDR](https://github.com/qulishen/RAIM-HDR)
 
+此外，我们提出的灵活多帧融合 MEF 方法可见 [qulishen/FreeMEF](https://github.com/qulishen/FreeMEF)。
+
 ## 📖 引用
 
 如果本工作对你的研究有帮助，欢迎引用：

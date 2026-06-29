@@ -201,6 +201,8 @@ A subset of the **ExpoMotion** dataset has been adopted by the NTIRE 2026 RAIM C
 - **Competition:** [NTIRE 2026 RAIM — Track 2 (Codabench)](https://www.codabench.org/competitions/12728/)
 - **Baseline code:** [qulishen/RAIM-HDR](https://github.com/qulishen/RAIM-HDR)
 
+Additionally, our flexible multi-frame MEF method is available at [qulishen/FreeMEF](https://github.com/qulishen/FreeMEF).
+
 ## 📖 Citation
 
 If you find ExpoMotion or HOP useful in your research, please consider citing:
