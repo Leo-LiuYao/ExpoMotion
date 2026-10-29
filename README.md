@@ -23,7 +23,7 @@ This repository contains the training and testing code for **HOP** (**H**ousehol
 
 ## 📦 ExpoMotion Dataset
 
-> ⚠️ The dataset is **not included** in this repository. Download `ExpoMotion.zip` from either mirror below and extract it locally.
+> ⚠️ The dataset is **not included** in this repository. Download the dataset archives from one of the sources below and extract them locally.
 
 <div align="center">
 
@@ -31,6 +31,7 @@ This repository contains the training and testing code for **HOP** (**H**ousehol
 |:------:|:----:|:----:|
 | **Baidu Netdisk** | [ExpoMotion.zip](https://pan.baidu.com/s/1FV5JOPvKvc_PmDMiHIO1Ww) | `EXPO` |
 | **Google Drive** | [ExpoMotion.zip](https://drive.google.com/file/d/1gY_S737bkDTdXZB8M8atWm9s5E8EUeGZ/view?usp=sharing) | — |
+| **Hugging Face** | [ExpoMotion](https://huggingface.co/datasets/yao010/ExpoMotion) | — |
 
 </div>
 
